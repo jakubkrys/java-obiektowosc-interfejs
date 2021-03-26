@@ -30,9 +30,20 @@ public class StoreDataApp {
 
                     getDataOptions(option);
                     break;
+                case 3:
+                    System.out.print("ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    getByIDMenu(id);
+                    break;
             }
         } while (option != 0);
         scanner.close();
+    }
+
+    private static void getByIDMenu(int id) {
+        repo = new DatabaseRepo();
+        repo.getByID(id);
     }
 
     private static void getDataOptions(int option) {
@@ -83,6 +94,7 @@ public class StoreDataApp {
         System.out.println("----- Store Data App -----");
         System.out.println("1 - save data");
         System.out.println("2 - get data");
+        System.out.println("3-  get data by ID");
         System.out.println("0 - quit");
     }
 }
