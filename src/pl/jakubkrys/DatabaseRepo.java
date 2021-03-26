@@ -12,4 +12,8 @@ public class DatabaseRepo implements Repo{
         System.out.println("Got data from database");
     }
 
+    @Override
+    public void getByID(int id) {
+        System.out.println("Got by ID from database");
+    }
 }
