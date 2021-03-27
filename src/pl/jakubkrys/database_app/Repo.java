@@ -1,4 +1,4 @@
-package pl.jakubkrys;
+package pl.jakubkrys.database_app;
 
 public interface Repo {
 
