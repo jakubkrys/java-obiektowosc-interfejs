@@ -25,70 +25,48 @@ public class RadioApp {
                     System.out.println("4 - Read from USB");
                     option = getOption();
 
-                    switch (option) {
-                        case 1:
-                            works[mainOption - 1].turnOn();
-                            break;
-                        case 2:
-                            works[mainOption - 1].turnOff();
-                            break;
-                        case 3:
-                            works[mainOption - 1].changeStation();
-                            break;
-                        case 4:
-                            if (works[mainOption - 1] instanceof Blaupunkt){
-                                works[mainOption - 1].readFromUSB();
-                            } else if (works[mainOption - 1] instanceof Sony) {
-                                works[mainOption - 1].useRemoteContoller();
-                            } else if (works[mainOption - 1] instanceof Lenco) {
-                                works[mainOption - 1].readFromCDDVD();
-                            }
-                            break;
-                    }
+                    switchMenu(works, mainOption, option);
                     break;
                 case 2:
                     turnMenu();
                     System.out.println("4 - Use remote controller");
                     option = getOption();
 
-                    switch (option) {
-                        case 1:
-                            works[mainOption - 1].turnOn();
-                            break;
-                        case 2:
-                            works[mainOption - 1].turnOff();
-                            break;
-                        case 3:
-                            works[mainOption - 1].changeStation();
-                            break;
-                        case 4:
-                            works[mainOption - 1].useRemoteContoller();
-                            break;
-                    }
+                    switchMenu(works, mainOption, option);
                     break;
                 case 3:
                     turnMenu();
                     System.out.println("4 - Read from CD/DVD");
                     option = getOption();
 
-                    switch (option) {
-                        case 1:
-                            works[mainOption - 1].turnOn();
-                            break;
-                        case 2:
-                            works[mainOption - 1].turnOff();
-                            break;
-                        case 3:
-                            works[mainOption - 1].changeStation();
-                            break;
-                        case 4:
-                            works[mainOption - 1].readFromCDDVD();
-                            break;
-                    }
+                    switchMenu(works, mainOption, option);
                     break;
             }
         } while (mainOption != 0);
         scanner.close();
+    }
+
+    private static void switchMenu(Work[] works, int mainOption, int option) {
+        switch (option) {
+            case 1:
+                works[mainOption - 1].turnOn();
+                break;
+            case 2:
+                works[mainOption - 1].turnOff();
+                break;
+            case 3:
+                works[mainOption - 1].changeStation();
+                break;
+            case 4:
+                if (works[mainOption - 1] instanceof Blaupunkt) {
+                    works[mainOption - 1].readFromUSB();
+                } else if (works[mainOption - 1] instanceof Sony) {
+                    works[mainOption - 1].useRemoteContoller();
+                } else if (works[mainOption - 1] instanceof Lenco) {
+                    works[mainOption - 1].readFromCDDVD();
+                }
+                break;
+        }
     }
 
     private static int getMainOption() {
